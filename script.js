@@ -1,6 +1,7 @@
 let fields = [];
 let gameOver = false;
 let currentShape = 'cross';
+let counter = 1;
 
 let audio1 = new Audio('sounds/place.mp3');
 let audio2 = new Audio('sounds/place2.mp3');
@@ -25,6 +26,7 @@ function fillShape(id) {
         console.log(fields);
         draw();
         checkForWin();
+        counter++;
     }
 }
 
@@ -92,7 +94,7 @@ function checkForWin() {
         },500);
     }
 
-    if (fields.length == 9) {
+    if (counter == 9) {
         console.log('Draw!', winner);
         gameOver = true;
         setTimeout(function(){
