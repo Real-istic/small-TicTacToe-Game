@@ -91,4 +91,14 @@ function checkForWin() {
             audioWin.play();
         },500);
     }
+
+    if (fields.length == 9) {
+        console.log('Draw!', winner);
+        gameOver = true;
+        setTimeout(function(){
+            document.getElementById('gameOver').classList.remove('d-none');
+            document.getElementById('restart').classList.remove('d-none');
+            audioWin.play();
+        },500);
+    }
 }
