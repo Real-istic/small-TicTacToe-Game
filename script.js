@@ -2,16 +2,23 @@ let fields = [];
 let gameOver = false;
 let currentShape = 'cross';
 
+let audio1 = new Audio('sounds/place.mp3');
+let audio2 = new Audio('sounds/place2.mp3');
+let audioWin = new Audio('sounds/win.mp3');
+
+
 function fillShape(id) {
     if (!fields[id] && !gameOver) {
         if (currentShape == 'cross') {
             currentShape = 'circle';
-            document.getElementById('player-1').classList.remove('player-inactive');
-            document.getElementById('player-2').classList.add('player-inactive');
-        } else {
-            currentShape = 'cross';
             document.getElementById('player-2').classList.remove('player-inactive');
             document.getElementById('player-1').classList.add('player-inactive');
+            audio1.play();
+        } else {
+            currentShape = 'cross';
+            document.getElementById('player-2').classList.add('player-inactive');
+            document.getElementById('player-1').classList.remove('player-inactive');
+            audio2.play();
         }
 
         fields[id] = currentShape;
@@ -81,6 +88,7 @@ function checkForWin() {
         setTimeout(function(){
             document.getElementById('gameOver').classList.remove('d-none');
             document.getElementById('restart').classList.remove('d-none');
-        },700);
+            audioWin.play();
+        },500);
     }
 }

@@ -5,6 +5,16 @@ body {
   flex-direction: column;
   height: 100vh;
   margin: 0;
+  background-color: black;
+}
+
+body > img {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 1;
 }
 
 table {
@@ -23,7 +33,7 @@ tr {
 td {
   width: 100vw;
   height: 188px;
-  border: 5px solid black;
+  border: 5px solid #2fff2f;
   position: relative;
   cursor: pointer;
 }
@@ -63,6 +73,7 @@ tbody:last-child tr td {
 
 .player-panel {
   display: flex;
+  color: white;
 }
 
 h1 {
@@ -73,6 +84,7 @@ h1 {
 }
 
 h1 img {
+  width: 112px;
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -86,7 +98,7 @@ h1 img {
   width: 100%;
   height: 10px;
   background-color: rgb(255, 0, 0);
-  transform: scaleX(0.0);
+  transform: scaleX(0);
   transition: 300ms all ease-in-out;
   /* z-index: 2; */
 }
@@ -98,62 +110,200 @@ h1 img {
 }
 
 .make-vertical {
-  transform: rotate(90deg) scaleX(0.0);
+  transform: rotate(90deg) scaleX(0);
   transition: 300ms all ease-in-out;
 }
 
-.game-over{
-    /* position: absolute; */
-     object-fit: cover;
-    /* top: 15%; */
-    z-index: 1;
-    animation: zoomIn 150ms ease-in-out;
+.game-over {
+  /* position: absolute; */
+  object-fit: cover;
+  /* top: 15%; */
+  z-index: 1;
+  animation: zoomIn 150ms ease-in-out;
+  transform: scale(0.5);
+}
+
+.restart {
+  position: absolute;
+  top: 60%;
+  /* left: 25.8%; */
+  border: 5px outset rgb(255, 0, 0);
+  border-radius: 5px;
+  background-color: rgb(0, 0, 255);
+  color: rgb(255, 255, 255);
+  z-index: 2;
+  width: 300px;
+  height: 100px;
+  font-size: 40px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  transition: 150ms all ease-in-out;
+  box-shadow: 5px 5px 15px 5px #000000;
+  animation: zoomIn 150ms ease-in-out;
+  scale: (0.5);
+}
+
+.restart:hover {
+  background-color: rgb(0, 209, 63);
+  color: rgb(255, 255, 255);
+  transition: 150ms all ease-in-out;
+}
+
+.game-over-screen {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 10%;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
     transform: scale(0.5);
+  }
 }
 
-.restart{
-    position: absolute;
-    top: 60%;
-    /* left: 25.8%; */
-    border: 5px outset rgb(255, 0, 0);
-    border-radius: 5px;
-    background-color: rgb(0, 0, 255);
-    color: rgb(255, 255, 255);
-    z-index: 2;
-    width: 300px;
-    height: 100px;
-    font-size: 40px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    transition: 150ms all ease-in-out;
-    box-shadow: 5px 5px 15px 5px #000000;
-    animation: zoomIn 150ms ease-in-out;
-    scale: (0.5);
+#line-1 {
+  top: 15.8%;
 }
 
-.restart:hover{
-    background-color: rgb(0, 209, 63);
-    color: rgb(255, 255, 255);
-    transition: 150ms all ease-in-out;
+#line-2 {
+  top: 48%;
 }
 
-.game-over-screen{
-    display: flex;
+#line-3 {
+  top: 80.5%;
+}
+
+#line-4 {
+  top: 47.5%;
+  left: -31.5%;
+  width: 96%;
+}
+
+#line-5 {
+  top: 47.5%;
+  left: 2%;
+  width: 96%;
+}
+
+#line-6 {
+  top: 47.5%;
+  left: 35.8%;
+  width: 96%;
+}
+
+#line-7 {
+  top: 48%;
+  width: 135%;
+  left: -18%;
+  transform: rotate(44deg) scaleX(0);
+}
+
+#line-8 {
+  top: 50%;
+  width: 135%;
+  left: -19%;
+  transform: rotate(-44deg) scaleX(0);
+}
+
+css-doodle {
+  position: absolute !important;
+  z-index: -1 !important;
+  width: 100%;
+  height: 97.3%;
+}
+
+@media (max-width: 650px) {
+  css-doodle {
+    position: absolute !important;
+    z-index: -1 !important;
+    width: 100%;
+    height: 325px;
+  }
+
+  .player-panel {
+    position: relative;
+    top: -4%;
     flex-direction: column;
-    position: absolute;
-    top: 10%;
     justify-content: center;
-    align-items: center;
-    width: 60vw;
-}
+  }
 
-@keyframes zoomIn{
-    from{
-        opacity: 0;
-        transform: scale(0);
-    }
+  h1 {
+    margin: 5px 0;
+  }
 
-    to{
-        transform: scale(0.5);
-    }
+  h1 img {
+    width: 80px;
+  }
+
+  .wrapper {
+    left: 0%;
+    top: 0%;
+    width: 340px;
+    height: 440px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  td {
+    height: 103px;
+  }
+
+  .horizontal-line {
+  }
+
+  #line-1 {
+    top: 11.5%;
+  }
+
+  #line-2 {
+    top: 37%;
+  }
+
+  #line-3 {
+    top: 61.5%;
+  }
+
+  #line-4 {
+    top: 29.5%;
+    left: -40%;
+    width: 113%;
+  }
+
+  #line-5 {
+    top: 29.5%;
+    left: -6%;
+    width: 113%;
+  }
+
+  #line-6 {
+    top: 29.5%;
+    left: 27.8%;
+    width: 113%;
+  }
+
+  #line-7 {
+    top: 36%;
+    width: 135%;
+    left: -18%;
+  }
+
+  #line-8 {
+    top: 36%;
+    width: 135%;
+    left: -17%;
+  }
+
+  .game-over-screen {
+    transform: scale(0.5);
+    z-index: 1;
+  }
 }
