@@ -29,7 +29,7 @@ function fillShape(id) {
 }
 
 function restart(){
-    window.location.pathname = 'index.html';
+    window.location.href = window.location.href
 }
 
 function draw() {
